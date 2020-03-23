@@ -127,6 +127,49 @@ document.addEventListener('keydown',function(event){
     }
 });
 
+//control mobile
+
+var btnLeft = document.getElementsByClassName('btn__control')[0];
+var btnRight = document.getElementsByClassName('btn__control')[1];
+
+btnLeft.addEventListener('touchstart',function(event){
+    if(event.target.id == parseInt(1)){
+        paddle.isMovingLeft = true;
+    }
+    else if(event.target.id == parseInt(2)){
+        paddle.isMovingRight = true;
+    }
+});
+
+btnLeft.addEventListener('touchend',function(event){
+    event.preventDefault();
+    if(event.target.id == parseInt(1)){
+        paddle.isMovingLeft = false;
+    }
+    else if(event.target.id == parseInt(2)){
+        paddle.isMovingRight = false;
+    }
+});
+
+btnRight.addEventListener('touchstart',function(event){
+    if(event.target.id == parseInt(1)){
+        paddle.isMovingLeft = true;
+    }
+    else if(event.target.id == parseInt(2)){
+        paddle.isMovingRight = true;
+    }
+});
+
+btnRight.addEventListener('touchend',function(event){
+    event.preventDefault();
+    if(event.target.id == parseInt(1)){
+        paddle.isMovingLeft = false;
+    }
+    else if(event.target.id == parseInt(2)){
+        paddle.isMovingRight = false;
+    }
+});
+
 function triggerMoveBall() {
     if(ball.x < ball.r || ball.x > canvas.width - ball.r){
         ball.dx = -ball.dx;

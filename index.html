@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Game đập gạch</title>
     <style>
         * {            
@@ -16,18 +16,19 @@
         }
 
         .wrapper {
-            background: url('./bg.jpg') no-repeat center;
+            background: url('./bg.jpg') no-repeat center bottom;
             background-size: cover;
             width:100%;
             height: 100vh;
             text-align: center;
             position:relative;
             background-color: rgba(0, 0, 0, 0.1);
+            padding: 24px 0;
         }
 
         h4 {
             font-size: 2.4rem;
-            padding: 24px 0;
+            padding: 12px 0;
         }
 
         p {
@@ -54,30 +55,62 @@
         }
 
         #list {
-            position:absolute;
-            top:50%;
-            left: 25%;
-            transform: translate(-50%,-50%);
             padding: 4px 24px;
+            display:block;
+            text-align: center;
+            margin:0 auto;
         }
 
+        .container {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn__control {
+            font-size: 3rem;
+            font-weight: 600;
+            padding: 16px 24px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border:0;
+            border-radius: 50%;
+            margin:24px 12px;
+            outline: none;
+            background-color: #fff;
+        }
+
+        @media (max-width:739px) {
+            #game {
+                max-width: 90%;
+                margin:0 auto;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <h4>Game đập gạch</h4>
-        <canvas id="game" width="500" height="500"></canvas>
-        <p>Số điểm:
-            <span id="score"></span>
-        </p>
-
-        <span class="noti">BINGOOOOOO</span>
         <select name="list" id="list" onchange="choseLevel(this.value)">
             <option class="list__item" value ="5, 100,0">Cấp độ 1</option>
             <option class="list__item" value ="7, 90,1">Cấp độ 2</option>
             <option class="list__item" value ="9, 80,2">Cấp độ 3</option>
             <option class="list__item" value ="11, 70,3">Cấp độ 4</option>
         </select>
+        <p>Số điểm:
+            <span id="score"></span>
+        </p>
+        <canvas id="game" width="500" height="500"></canvas>
+
+
+        <span class="noti">BINGOOOOOO</span>
+       
+        <div class="container">
+            <button class="btn__control btn__left" id ="1"><</button>
+            <button class="btn__control btn__right" id ="2">></button>
+        </div>
+
     </div>
 
     <script src="game.js"></script>
